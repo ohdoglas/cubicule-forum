@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 
 type TUser = {
-    id?: ReturnType<typeof uuidv4>;
+    id: ReturnType<typeof uuidv4>;
     username: string;
     email: string;
     password_hash: string;
