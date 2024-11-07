@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
+import { Roles, Status } from '../enums/accessEnums';
 
 type TUser = {
     id: ReturnType<typeof uuidv4>;
@@ -12,8 +13,8 @@ type TUser = {
     created_at: Date;
     updated_at: Date;
     last_login?: Date;
-    status: string;
-    role: string;
+    status: Status;
+    role: Roles;
 }
 
 export default TUser;

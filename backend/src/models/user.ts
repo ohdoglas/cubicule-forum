@@ -7,6 +7,7 @@ import { generateConfirmationToken } from "../utils/security/emailConfirmationTo
 import hash from "../utils/security/pass/passwordHash";
 import prisma from "../config/prisma";
 import USER from "../utils/messages/userMessages";
+import { Permissions, RolePermissions, Roles, Status } from "../enums/accessEnums";
 
 
 
@@ -22,8 +23,8 @@ export default class User {
     created_at: Date;
     updated_at: Date;
     last_login?: Date;
-    status: string;
-    role: string;
+    status: Status;
+    role: Roles;
 
     constructor(props: TUser) {
         this.id = props.id || uuidv4();
@@ -45,7 +46,7 @@ export default class User {
         if (!isValidUsername(user.username)) return USER.ERR.INVALID_USERNAME;
         if (await this.findByUsername(user.username)) return USER.ERR.NOT_UNIQUE_USERNAME;
         if (!validateEmail(user.email)) return USER.ERR.INVALID_EMAIL;
-        if (await this.findByEmail(user.email)) return USER.ERR.NOT_UNIQUE_EMAIL;
+        if (await User.findByEmail(user.email)) return USER.ERR.NOT_UNIQUE_EMAIL;
         if (!validatePassword(user.password_hash)) return USER.ERR.WEAK_PASSWORD;
 
         const hashed = await hash(user.password_hash);
@@ -61,8 +62,8 @@ export default class User {
                 confirmationToken: emailConfirmToken,
                 created_at: String(Date.now()),
                 updated_at: String(Date.now()),
-                status: "Active",
-                role: "user",
+                status: Status.ACTIVE,
+                role: Roles.USER,
             }
         });
 
@@ -78,7 +79,7 @@ export default class User {
 
     }
 
-    async findById (id: string) {
+    static async findById (id: string) {
         const find = await prisma.user.findUnique({
             where: { id: id}
         });
@@ -102,7 +103,7 @@ export default class User {
         return find;
     }
 
-    async findByEmail (email: string) {
+    static async findByEmail (email: string) {
         const find = await prisma.user.findUnique({
             where: { email: email}
         });
@@ -127,6 +128,10 @@ export default class User {
         });
     }
 
+    async isActive(): Promise<boolean> {
+        return this.status === Status.ACTIVE;
+    }
+
     async resetPassword () {
 
     }
@@ -141,6 +146,11 @@ export default class User {
 
     async setRole () {
 
+    }
+
+    async hasPermission(permission: Permissions): Promise<boolean> {
+        const userPermissions = RolePermissions[this.role];
+        return userPermissions.includes(permission);
     }
 
     async updateLastLogin () {
