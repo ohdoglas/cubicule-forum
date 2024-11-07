@@ -10,6 +10,7 @@ const USER = {
         It is at least 6 characters long.`,
         NOT_UNIQUE_USERNAME: "The entered user is already in use.",
         NOT_UNIQUE_EMAIL: "The email entered is already in use",
+        USER_NOT_FOUND: "User not found. Please check your credentials and try again.",
     },
     SUCCESS: {
 
