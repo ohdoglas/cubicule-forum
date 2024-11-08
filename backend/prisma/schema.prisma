@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -14,77 +8,79 @@ datasource db {
 }
 
 model User {
-  id             String          @id @default(uuid()) @db.Uuid
-  username       String          @unique @db.VarChar(50)
-  email          String          @unique @db.VarChar(255)
-  password_hash  String          @db.VarChar(255)
-  profile_image  String?         @db.Text
-  bio            String?         @db.Text
-  emailVerified  Boolean         @default(false)
-  confirmationToken String?      @unique
-  created_at     DateTime        @default(now())
-  updated_at     DateTime        @updatedAt
-  last_login     DateTime?
-  status         String          @db.VarChar(20)
-  role           String          @db.VarChar(20)
-
-  wallet         Wallets?        @relation("UserWallet")
-  userRoles      UserRoles[]     @relation("UserId")
-  userPermissions UserPermissions[] @relation("UserPermissionsUser")
+  username          String            @unique @db.VarChar(50)
+  email             String            @unique @db.VarChar(255)
+  password_hash     String            @db.VarChar(255)
+  profile_image     String?
+  bio               String?
+  created_at        DateTime          @default(now())
+  updated_at        DateTime          @updatedAt
+  last_login        DateTime?
+  status            String            @db.VarChar(20)
+  role              String            @db.VarChar(20)
+  id                String            @id @default(uuid()) @db.Uuid
+  confirmationToken String?           @unique
+  emailVerified     Boolean           @default(false)
+  userPermissions   UserPermissions[] @relation("UserPermissionsUser")
+  userRoles         UserRoles[]       @relation("UserId")
+  wallet            Wallets?          @relation("UserWallet")
 }
 
 model Roles {
-  id             String        @id @default(uuid()) @db.Uuid
-  role_name      String        @unique @db.VarChar(50)
-  description    String?       @db.Text
-  status         Boolean       @default(true)
-  created_at     DateTime      @default(now())
-  updated_at     DateTime      @updatedAt
-  deleted_at     DateTime?
-
-  userRoles      UserRoles[]   @relation("UserRoleId")
+  id          String      @id @default(uuid()) @db.Uuid
+  role_name   String      @unique @db.VarChar(50)
+  description String?
+  status      Boolean     @default(true)
+  created_at  DateTime    @default(now())
+  updated_at  DateTime    @updatedAt
+  deleted_at  DateTime?
+  userRoles   UserRoles[] @relation("UserRoleId")
 }
 
 model Permissions {
-  id             String        @id @default(uuid()) @db.Uuid
-  permission     String        @unique @db.VarChar(100)
-  description    String?       @db.Text
-  status         Boolean       @default(true)
-  created_at     DateTime      @default(now())
-  updated_at     DateTime      @updatedAt
-  deleted_at     DateTime?
-
+  id              String            @id @default(uuid()) @db.Uuid
+  permission      String            @unique @db.VarChar(100)
+  description     String?
+  status          Boolean           @default(true)
+  created_at      DateTime          @default(now())
+  updated_at      DateTime          @updatedAt
+  deleted_at      DateTime?
   userPermissions UserPermissions[] @relation("UserPermissionId")
 }
 
 model UserRoles {
-  id            String        @id @default(uuid()) @db.Uuid
-  user_id       String        @db.Uuid
-  role_id       String        @db.Uuid
-  assigned_at   DateTime      @default(now())
-  revoked_at    DateTime?
-
-  user          User?         @relation("UserId", fields: [user_id], references: [id])
-  role          Roles?        @relation("UserRoleId", fields: [role_id], references: [id])
+  id          String    @id @default(uuid()) @db.Uuid
+  user_id     String    @db.Uuid
+  role_id     String    @db.Uuid
+  assigned_at DateTime  @default(now())
+  revoked_at  DateTime?
+  role        Roles     @relation("UserRoleId", fields: [role_id], references: [id])
+  user        User      @relation("UserId", fields: [user_id], references: [id])
 }
 
 model UserPermissions {
-  id            String        @id @default(uuid()) @db.Uuid
-  user_id       String        @db.Uuid
-  permission_id String        @db.Uuid
-  granted_at    DateTime      @default(now())
+  id            String      @id @default(uuid()) @db.Uuid
+  user_id       String      @db.Uuid
+  permission_id String      @db.Uuid
+  granted_at    DateTime    @default(now())
   revoked_at    DateTime?
-
-  user          User?         @relation("UserPermissionsUser", fields: [user_id], references: [id])
-  permission    Permissions?  @relation("UserPermissionId", fields: [permission_id], references: [id])
+  permission    Permissions @relation("UserPermissionId", fields: [permission_id], references: [id])
+  user          User        @relation("UserPermissionsUser", fields: [user_id], references: [id])
 }
 
 model Wallets {
-  id             String     @id @default(uuid()) @db.Uuid
-  user_id        String     @unique @db.Uuid
-  balance        Decimal    @default(0.00)
-  created_at     DateTime   @default(now())
-  updated_at     DateTime   @updatedAt
+  id         String   @id @default(uuid()) @db.Uuid
+  user_id    String   @unique @db.Uuid
+  balance    Decimal  @default(0.00)
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  user       User     @relation("UserWallet", fields: [user_id], references: [id])
+}
 
-  user           User       @relation("UserWallet", fields: [user_id], references: [id])
+model InitialSetup {
+  id            String    @id @default(uuid()) @db.Uuid
+  setupComplete Boolean   @default(false)
+  setupToken    String    @unique @db.VarChar(255)
+  created_at    DateTime  @default(now())
+  completed_at  DateTime?
 }
