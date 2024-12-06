@@ -119,7 +119,14 @@ export default class User {
 
     }
 
-    async verifyEmail (token: string) {
+    static async findConfirmationToken(token: string) {
+        return await prisma.user.findUnique({
+            where: { confirmationToken: token },
+            select: { emailVerified: true }
+        });
+    }
+
+    static async verifyEmail (token: string) {
         await prisma.user.update({
             where: {confirmationToken: token},
             data: {
