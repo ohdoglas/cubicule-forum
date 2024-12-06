@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import { Roles, Status } from '../enums/accessEnums';
+import { Roles, Status } from '../utils/enums/accessEnums';
 
 type TUser = {
     id: ReturnType<typeof uuidv4>;

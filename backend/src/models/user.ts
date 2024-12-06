@@ -3,11 +3,11 @@ import { v4 as uuidv4 } from 'uuid';
 import isValidUsername from "../utils/validation/validateUsername";
 import validateEmail from "../utils/validation/validateEmail";
 import validatePassword from "../utils/validation/validatePassword";
-import { generateConfirmationToken } from "../utils/security/emailConfirmationToken";
+import { generateConfirmationToken } from "../utils/security/token/emailConfirmationToken";
 import hash from "../utils/security/pass/passwordHash";
 import prisma from "../config/prisma";
 import USER from "../utils/messages/userMessages";
-import { Permissions, RolePermissions, Roles, Status } from "../enums/accessEnums";
+import { Permissions, RolePermissions, Roles, Status } from "../utils/enums/accessEnums";
 
 
 
@@ -42,9 +42,9 @@ export default class User {
         this.role = props.role;
     }
 
-    async create (user: TUser) {
+    static async create (user: TUser) {
         if (!isValidUsername(user.username)) return USER.ERR.INVALID_USERNAME;
-        if (await this.findByUsername(user.username)) return USER.ERR.NOT_UNIQUE_USERNAME;
+        if (await User.findByUsername(user.username)) return USER.ERR.NOT_UNIQUE_USERNAME;
         if (!validateEmail(user.email)) return USER.ERR.INVALID_EMAIL;
         if (await User.findByEmail(user.email)) return USER.ERR.NOT_UNIQUE_EMAIL;
         if (!validatePassword(user.password_hash)) return USER.ERR.WEAK_PASSWORD;
@@ -91,7 +91,7 @@ export default class User {
         return find;
     }
 
-    async findByUsername (username: string) {
+    static async findByUsername (username: string) {
         const find = await prisma.user.findUnique({
             where: { username: username }
         });
