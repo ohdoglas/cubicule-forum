@@ -1,5 +1,6 @@
 const USER = {
     ERR: {
+        MISSING_FIELDS: "",
         INVALID_USERNAME: "Please enter a username with a valid format.",
         INVALID_EMAIL: "Please enter an email with a valid format.",
         WEAK_PASSWORD:  `Weak Password!
