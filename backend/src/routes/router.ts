@@ -1,4 +1,5 @@
 import { Router, Request, Response } from "express";
+import setupRoutes from "./serverSide/setupRoute";
 
 const routes = Router();
 
@@ -7,5 +8,7 @@ routes.get('/', (req: Request, res: Response) => {
         message: "Server OK"
     });
 });
+
+routes.use('/', setupRoutes);
 
 export default routes;

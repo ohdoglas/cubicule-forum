@@ -2,6 +2,9 @@ import { v4 as uuidv4 } from 'uuid';
 import TInitialSetup from '../types/TInitialSetup';
 import prisma from '../config/prisma';
 import crypto from 'crypto';
+import hash from '../utils/security/pass/passwordHash';
+import { generateConfirmationToken } from '../utils/security/token/emailConfirmationToken';
+import { Roles, Status } from '../utils/enums/accessEnums';
 
 
 export default class InitialSetup {
@@ -26,7 +29,7 @@ export default class InitialSetup {
 
     static async validateToken(token: string): Promise<boolean> {
         const check = await prisma.initialSetup.findUnique({
-            where: { id: token }
+            where: { setupToken: token }
         })
 
         if (!check) {
@@ -40,20 +43,17 @@ export default class InitialSetup {
     static async markSetupComplete (token: string) {
         const update = await prisma.initialSetup.update({
             where: { setupToken: token  },
-            data: { setupComplete: true}
+            data: { setupComplete: true,
+                completed_at: new Date()
+            }
         });
     }
 
-    static async isSetupComplete (token: string) {
-        const check = await prisma.initialSetup.findFirst({
-            where: { setupToken: token }
+    static async isSetupComplete(): Promise<boolean> {
+        const setupRecord = await prisma.initialSetup.findFirst({
+            where: { setupComplete: true },
         });
-
-        if (!check) {
-            return null;
-        }
-
-        return check.setupComplete;
+        return setupRecord ? true : false;
     }
 
     static async getSetupDetails (id: string) {
@@ -74,7 +74,37 @@ export default class InitialSetup {
         return find;
     }
 
-    static async initializeSetup () {
+    static async startSetupConfig (token: string) {
+        const init = await prisma.initialSetup.create({
+            data: {
+                setupToken: token,
+                setupComplete: false,
+                created_at: new Date()
+            }
+        });
+    }
+
+    static async createAdmin (username: string, email: string, password: string) {
+
+        const hashed = await hash(password);
+        const emailConfirmToken = await generateConfirmationToken();
+
+        const newAdmin = await prisma.user.create({
+            data: {
+                id: uuidv4(),
+                username: username,
+                email: email,
+                password_hash: hashed,
+                emailVerified: false,
+                confirmationToken: emailConfirmToken,
+                created_at: new Date(),
+                updated_at: new Date(),
+                status: Status.ACTIVE,
+                role: Roles.ADMIN,
+            }
+        });
+
+        return newAdmin;
 
     }
 }
