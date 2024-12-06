@@ -6,6 +6,7 @@ import USER from "../../utils/messages/userMessages";
 import validateEmail from "../../utils/validation/validateEmail";
 import validatePassword from "../../utils/validation/validatePassword";
 import User from "../../models/user";
+import SERVER from "../../utils/messages/serverMessages";
 
 
 export default class initSetupMiddleware {
@@ -74,7 +75,8 @@ export default class initSetupMiddleware {
             next();
         } catch (error) {
             const erro = error as Error;
-            return res.status(500).json({ message: erro.message });
+            console.log(erro);
+            return res.status(500).json({ message: SERVER.ERR.INTERNAL_ERROR });
         }
     }
 
