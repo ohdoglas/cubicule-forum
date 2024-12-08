@@ -8,6 +8,7 @@ import hash from "../utils/security/pass/passwordHash";
 import prisma from "../config/prisma";
 import USER from "../utils/messages/userMessages";
 import { Permissions, RolePermissions, Roles, Status } from "../utils/enums/accessEnums";
+import sendConfirmationEmail from "../utils/security/userEmailConfirmation";
 
 
 
@@ -42,12 +43,7 @@ export default class User {
         this.role = props.role;
     }
 
-    static async create (user: TUser) {
-        if (!isValidUsername(user.username)) return USER.ERR.INVALID_USERNAME;
-        if (await User.findByUsername(user.username)) return USER.ERR.NOT_UNIQUE_USERNAME;
-        if (!validateEmail(user.email)) return USER.ERR.INVALID_EMAIL;
-        if (await User.findByEmail(user.email)) return USER.ERR.NOT_UNIQUE_EMAIL;
-        if (!validatePassword(user.password_hash)) return USER.ERR.WEAK_PASSWORD;
+    static async create (user: any) {
 
         const hashed = await hash(user.password_hash);
         const emailConfirmToken = await generateConfirmationToken();
@@ -60,12 +56,14 @@ export default class User {
                 password_hash: hashed,
                 emailVerified: false,
                 confirmationToken: emailConfirmToken,
-                created_at: String(Date.now()),
-                updated_at: String(Date.now()),
+                created_at: new Date(),
+                updated_at: new Date(),
                 status: Status.ACTIVE,
                 role: Roles.USER,
             }
         });
+
+        await sendConfirmationEmail(user.email, emailConfirmToken);
 
         return newUser;
 

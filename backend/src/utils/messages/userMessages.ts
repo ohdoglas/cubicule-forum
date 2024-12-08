@@ -1,6 +1,6 @@
 const USER = {
     ERR: {
-        MISSING_FIELDS: "",
+        MISSING_FIELDS: "All fields are required (username, email, password)",
         INVALID_USERNAME: "Please enter a username with a valid format.",
         INVALID_EMAIL: "Please enter an email with a valid format.",
         WEAK_PASSWORD:  `Weak Password!
@@ -9,7 +9,7 @@ const USER = {
         Contains at least one number.
         Contains at least one special character.
         It is at least 6 characters long.`,
-        NOT_UNIQUE_USERNAME: "The entered user is already in use.",
+        NOT_UNIQUE_USERNAME: "The entered username is already in use.",
         NOT_UNIQUE_EMAIL: "The email entered is already in use",
         USER_NOT_FOUND: "User not found. Please check your credentials and try again.",
         MISSING_EMAIL_CONFIRM_TOKEN: `A token is required to confirm your email. Please use the link sent to your email, which looks like this: "https:ourdomain/token"`,
@@ -20,6 +20,8 @@ const USER = {
     },
     SUCCESS: {
         EMAIL_CONFIRMATION: 'Email confirmation completed successfully! You can now access your account.',
+        CONFIRM_EMAIL_SENT: `To activate your account, please check your email and click on the confirmation link we just sent.
+            If you don't find the email in your inbox, check your spam or junk folder.`
     }
 }
 
