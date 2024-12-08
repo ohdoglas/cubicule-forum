@@ -19,7 +19,7 @@ export default class registerMiddleware {
             }
 
             const isUniqueUsername = await User.findByUsername(username);
-            const checkValidUsername = await isValidUsername(username);
+            const checkValidUsername = isValidUsername(username);
 
             if (!checkValidUsername) {
                 return res.status(400).json({
@@ -34,7 +34,7 @@ export default class registerMiddleware {
             }
 
             const isUniqueEmail = await User.findByEmail(email);
-            const isValidEmail = await validateEmail(email);
+            const isValidEmail = validateEmail(email);
 
             if (!isValidEmail) {
                 return res.status(400).json({
@@ -48,7 +48,7 @@ export default class registerMiddleware {
                 });
             }
 
-            const weakPassword = await validatePassword(password);
+            const weakPassword = validatePassword(password);
             if (!weakPassword) {
                 return res.status(400).json({
                     message: USER.ERR.WEAK_PASSWORD

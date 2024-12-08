@@ -1,8 +1,6 @@
 import { Request, Response } from "express";
 import SERVER from "../../utils/messages/serverMessages";
-import hash from "../../utils/security/pass/passwordHash";
 import User from "../../models/user";
-import { generateConfirmationToken } from "../../utils/security/token/emailConfirmationToken";
 import USER from "../../utils/messages/userMessages";
 
 

@@ -20,8 +20,8 @@ const USER = {
     },
     SUCCESS: {
         EMAIL_CONFIRMATION: 'Email confirmation completed successfully! You can now access your account.',
-        CONFIRM_EMAIL_SENT: `To activate your account, please check your email and click on the confirmation link we just sent.
-            If you don't find the email in your inbox, check your spam or junk folder.`
+        CONFIRM_EMAIL_SENT: `Your account has been created successfully. To activate your account, please check your email and click on the confirmation link we just sent.
+            If you don't find the email in your inbox, check your spam or junk folder.`,
     }
 }
 
