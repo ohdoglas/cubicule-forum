@@ -3,6 +3,7 @@ import routes from "./routes/router";
 import 'dotenv/config';
 import InitialSetup from "./models/initialSetup";
 import sendSetupMail from "./utils/security/setupMail";
+import SETUP from "./utils/messages/setupMessages";
 
 const adminMail = process.env.ADMIN_MAIL;
 const app: Application = express();
@@ -23,7 +24,7 @@ async function checkInitialSetup() {
             }
         }
     } catch (error) {
-        console.error(`Failed to send confirmation email`, error);
+        console.error(SETUP.ERR.SEND_EMAIL_FAILED, error);
     }
 
 }

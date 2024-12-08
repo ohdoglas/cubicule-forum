@@ -2,6 +2,7 @@ const SETUP = {
     ERR: {
         MISSING_FIELDS: "To register as an admin, enter all necessary fields: Username, Email, Password and Verification Token",
         INVALID_TOKEN: "The provided token is not compatible with the token in the database.",
+        SEND_EMAIL_FAILED: "Failed to send confirmation email "
     },
     SUCCESS: {
         ALREADY_COMPLETED: "The initial setup and super admin configuration has already been completed.",
