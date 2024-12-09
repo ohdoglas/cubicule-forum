@@ -1,8 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import InitialSetup from "../../models/initialSetup";
 import SETUP from "../../utils/messages/setupMessages";
-import sendConfirmationEmail from "../../utils/security/userEmailConfirmation";
-import { generateConfirmationToken } from "../../utils/security/token/emailConfirmationToken";
 import Role from "../../models/roles";
 import Permission from "../../models/permissions";
 import { Permissions, Roles } from "../../utils/enums/accessEnums";

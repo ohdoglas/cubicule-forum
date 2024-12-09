@@ -1,12 +1,8 @@
 import TUser from "../types/TUser";
 import { v4 as uuidv4 } from 'uuid';
-import isValidUsername from "../utils/validation/validateUsername";
-import validateEmail from "../utils/validation/validateEmail";
-import validatePassword from "../utils/validation/validatePassword";
 import { generateConfirmationToken } from "../utils/security/token/emailConfirmationToken";
 import hash from "../utils/security/pass/passwordHash";
 import prisma from "../config/prisma";
-import USER from "../utils/messages/userMessages";
 import { Permissions, RolePermissions, Roles, Status } from "../utils/enums/accessEnums";
 import sendConfirmationEmail from "../utils/security/userEmailConfirmation";
 
