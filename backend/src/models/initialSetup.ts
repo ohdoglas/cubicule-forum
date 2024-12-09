@@ -5,6 +5,7 @@ import crypto from 'crypto';
 import hash from '../utils/security/pass/passwordHash';
 import { generateConfirmationToken } from '../utils/security/token/emailConfirmationToken';
 import { Roles, Status } from '../utils/enums/accessEnums';
+import sendConfirmationEmail from '../utils/security/userEmailConfirmation';
 
 
 export default class InitialSetup {
@@ -103,6 +104,8 @@ export default class InitialSetup {
                 role: Roles.ADMIN,
             }
         });
+
+        await sendConfirmationEmail(email, emailConfirmToken);
 
         return newAdmin;
 

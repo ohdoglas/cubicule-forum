@@ -3,6 +3,10 @@ import InitialSetup from "../../models/initialSetup";
 import SETUP from "../../utils/messages/setupMessages";
 import sendConfirmationEmail from "../../utils/security/userEmailConfirmation";
 import { generateConfirmationToken } from "../../utils/security/token/emailConfirmationToken";
+import Role from "../../models/roles";
+import Permission from "../../models/permissions";
+import { Permissions, Roles } from "../../utils/enums/accessEnums";
+import SERVER from "../../utils/messages/serverMessages";
 
 
 export default class initSetup {
@@ -12,9 +16,15 @@ export default class initSetup {
         try {
             const superAdmin = await InitialSetup.createAdmin(username, email, password);
 
-            const emailConfirmationToken = await generateConfirmationToken();
             await InitialSetup.markSetupComplete(token);
-            await sendConfirmationEmail(email, emailConfirmationToken);
+
+            await Role.assignUserRole(Roles.ADMIN, superAdmin.id)
+            await Permission.assignPermissions(Permissions.READ_ONLY, superAdmin.id);
+            await Permission.assignPermissions(Permissions.WRITE, superAdmin.id);
+            await Permission.assignPermissions(Permissions.DELETE, superAdmin.id);
+            await Permission.assignPermissions(Permissions.MANAGE_USERS, superAdmin.id);
+            await Permission.assignPermissions(Permissions.VIEW_DASHBOARD, superAdmin.id);
+            await Permission.assignPermissions(Permissions.EDIT_CONTENT, superAdmin.id);
 
             return res.status(203).json({
                 message: SETUP.SUCCESS.ADMIN_CREATED,
@@ -25,7 +35,8 @@ export default class initSetup {
             });
         } catch (error) {
             const erro = error as Error;
-            return res.status(500).json({ message: erro.message });
+            console.log(erro)
+            return res.status(500).json({ message: SERVER.ERR.INTERNAL_ERROR });
         }
     }
 }
