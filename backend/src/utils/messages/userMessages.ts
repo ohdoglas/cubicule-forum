@@ -17,6 +17,11 @@ const USER = {
         A token is required to confirm your email. Please use the link sent to your email, which looks like this:
         "https:ourdomain/token".`,
         ALREADY_VERIFIED: 'It seems that your email has already been confirmed. If you have any questions or need further assistance, please feel free to reach out to our support team.',
+        MISSING_USERNAME_EMAIL: "Email or Username is required",
+        MISSING_PASSWORD: "Password is required",
+        INVALID_LOGIN_CREDENTIALS: "Invalid email/username or password",
+        EMAIL_CONFIRMATION_REQUIRED: "Your email address has not been confirmed yet. Please confirm your email before attempting to log in. Check your inbox for the confirmation email, or request a new one if necessary.",
+        ACCOUNT_NOT_ACTIVE: "Your account is currently inactive. To resolve this issue, please contact our support team for assistance. We’re here to help!"
     },
     SUCCESS: {
         EMAIL_CONFIRMATION: 'Email confirmation completed successfully! You can now access your account.',

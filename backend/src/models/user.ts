@@ -133,8 +133,29 @@ export default class User {
         });
     }
 
-    async isActive(): Promise<boolean> {
-        return this.status === Status.ACTIVE;
+    static async isVerified(id: string) {
+        const verified = await prisma.user.findUnique({
+            where: { id: id }
+        });
+
+        if (!verified) {
+            return false;
+        }
+
+        return verified.emailVerified === true;
+    }
+
+    static async isActive(id: string): Promise<boolean> {
+
+        const active = await prisma.user.findUnique({
+            where: { id: id}
+        })
+
+        if (!active) {
+            return false;
+        }
+
+        return active.status === Status.ACTIVE;
     }
 
     async resetPassword () {
@@ -158,8 +179,11 @@ export default class User {
         return userPermissions.includes(permission);
     }
 
-    async updateLastLogin () {
-
+    static async updateLastLogin (email: string) {
+        await prisma.user.update({
+            where: { email: email},
+            data: { last_login: new Date() }
+        })
     }
 
     async listActive () {
