@@ -44,9 +44,11 @@ const Home: React.FC = () => {
                 <h1 className="features">
                 What Makes Cubicles Different?
                 </h1>
-                <button className="features_button">
-                    discover our features
-                </button>
+                <Link to={"/features"}>
+                    <button className="features_button">
+                        discover our features
+                    </button>
+                </Link>
             </section>
         </main>
 

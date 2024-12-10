@@ -1,9 +1,4 @@
-@import url(../global.css);
-@import url(../reset.css);
-@import url(../variables.css);
-
-
-.footer{
+.footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -11,22 +6,21 @@
     width: 100%;
     background-color: var(--base-000);
     color: var(--text-000);
-    position: relative;
+    bottom: 0;
+    left: 0;
 }
-
 
 .links_left, .links_right {
     display: flex;
     flex-direction: column;
-    gap: 8px
+    gap: 8px;
 }
-
 
 .social_links {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px
+    gap: 10px;
 }
 
 .social_links div {
@@ -38,7 +32,7 @@
 }
 
 .social_links div:hover {
-    transform: scale(1.1); /* Efeito de destaque ao passar o mouse */
+    transform: scale(1.1);
 }
 
 .img_instagram,

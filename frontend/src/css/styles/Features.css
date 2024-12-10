@@ -1,0 +1,58 @@
+@import url(../global.css);
+@import url(../reset.css);
+@import url(../variables.css);
+@import url(../components/header.css);
+@import url(../components/footer.css);
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    overflow-x: hidden;
+
+    background-color: var(--base-001);
+    color: var(--text-000);
+
+    background-image: url(../../assets/design-Cubicles/cubiclesFloat.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+.main_content {
+    display: block;
+    text-align: center;
+
+    padding: 64px;
+    margin: 32px;
+}
+
+.main_content section {
+    margin-left: 100px;
+    margin-right: 100px;
+
+    margin-bottom: 200px;
+}
+
+.feature_title {
+    padding: 20px;
+    font-size: 64px;
+    margin-bottom: 32px;
+    background-color: var(--detail-opac);
+
+    margin-left: 250px;
+    margin-right: 250px;
+}
+
+.feature_text {
+    padding: 30px;
+    margin: 16px;
+
+    background-color: var(--detail-opac);
+
+    margin-left: 150px;
+    margin-right: 150px;
+}
