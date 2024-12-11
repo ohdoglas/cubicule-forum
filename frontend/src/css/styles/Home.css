@@ -15,14 +15,13 @@ body {
     background-color: var(--base-001);
     color: var(--text-000);
 
-    
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
 }
 
 body.page-one {
     background-image: url(../../assets/design/png/cubiclesFloat.png);
+    background-size: 120%;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .get_started_button, .features_button {

@@ -7,7 +7,7 @@ import Footer from "./components/footer";
 const Features: React.FC = () => {
     const navigate = useNavigate();
     return (
-        <body className="page-one">
+        <body className="page-two">
             <Header />
 
         <main className="main_content">

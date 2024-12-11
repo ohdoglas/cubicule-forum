@@ -14,14 +14,13 @@ body {
 
     background-color: var(--base-001);
     color: var(--text-000);
+}
 
+body.page-three {
+    background-image: url(../../assets/design/png/us_03.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-}
-
-body.page-two {
-    background-image: url(../../assets/design/png/us_03.png);
 }
 
 .main_content a{

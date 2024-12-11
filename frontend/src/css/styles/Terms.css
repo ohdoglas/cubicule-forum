@@ -14,18 +14,14 @@ body {
 
     background-color: var(--base-001);
     color: var(--text-000);
-
-
 }
 
-body.page-two {
-    background-image: url(../../assets/design/png/cubiclesFloat.png);
-    background-image: url(../../assets/design/png/cubiclesFloat.png);
-    background-size: 200%;
+body.page-four {
+    background-image: url(../../assets/design/png/we_cube_02.png);
+    background-size: 370%;
     background-position: center;
     background-repeat: no-repeat;
 }
-
 
 .main_content {
     display: block;
