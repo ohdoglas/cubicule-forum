@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
             <a href="/about">ABOUT US</a>
             <a href="#">HELP CENTER</a>
             <a href="#">CONTACT US</a>
-            <a href="#">TERMS OF SERVICE</a>
+            <a href="/terms">TERMS OF SERVICE</a>
         </div>
 
         <div className="social_links">
@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
         <div className="links_right">
             <a href="#">ACCESSIBILITY</a>
             <a href="#">PRICING</a>
-            <a href="#">PRIVACY POLICY</a>
+            <a href="/privacy">PRIVACY POLICY</a>
             <a href="#">COOKIE POLICY</a>
         </div>
     </footer>
