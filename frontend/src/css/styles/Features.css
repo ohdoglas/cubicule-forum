@@ -15,10 +15,13 @@ body {
     background-color: var(--base-001);
     color: var(--text-000);
 
-    background-image: url(../../assets/design-Cubicles/cubiclesFloat.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+body.page-one {
+    background-image: url(../../assets/design/png/cubiclesFloat.png);
 }
 
 

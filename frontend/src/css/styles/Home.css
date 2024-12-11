@@ -15,10 +15,14 @@ body {
     background-color: var(--base-001);
     color: var(--text-000);
 
-    background-image: url(../../assets/design-Cubicles/cubiclesFloat.png);
+    
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+body.page-one {
+    background-image: url(../../assets/design/png/cubiclesFloat.png);
 }
 
 .get_started_button, .features_button {
@@ -44,12 +48,18 @@ body {
     font-size: 64px;
     margin-bottom: 32px;
 
+    margin-left: 250px;
+    margin-right: 250px;
+
     background-color: var(--detail-opac);
 }
 
 .welcome_text, .intro_text {
     padding: 30px;
     padding-bottom: 32px;
+
+    margin-left: 250px;
+    margin-right: 250px;
 
     background-color: var(--detail-opac);
 }
@@ -59,6 +69,10 @@ body {
     font-size: 32px;
     margin-top: 30px;
 
+
+    margin-left: 250px;
+    margin-right: 250px;
+    
     background-color: var(--detail-opac);
 }
 

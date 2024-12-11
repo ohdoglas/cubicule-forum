@@ -1,23 +1,14 @@
 import React from "react";
 import { useNavigate, Link } from "react-router-dom";
 import '../css/styles/Home.css';
+import Header from "./components/header";
+import Footer from "./components/footer";
 
 const Home: React.FC = () => {
     const navigate = useNavigate();
     return (
-        <body>
-            <header className="header">
-            <nav className="header_nav">
-                <div className="header_nav_logo">
-                    <Link to={"/"}><img className="header_nav_logo_img" alt=""/></Link>
-                    <Link to={"/"}><img className="header_nav_logo_name" alt="" /></Link>
-                </div>
-            </nav>
-            <div className="header_nav_buttons">
-                    <button className="header_nav_login_button">LOGIN</button>
-                    <button className="header_nav_register_button">REGISTER</button>
-                </div>
-        </header>
+        <body className="page-one">
+            <Header />
 
         <main className="main_content">
             <section>
@@ -51,30 +42,9 @@ const Home: React.FC = () => {
                 </Link>
             </section>
         </main>
+        <Footer />
 
-        <footer className="footer">
-            <div className="links_left">
-                <a href="#">ABOUT US</a>
-                <a href="#">HELP CENTER</a>
-                <a href="#">CONTACT US</a>
-                <a href="#">TERMS OF SERVICE</a>
-            </div>
 
-            <div className="social_links">
-                <div className="img_instagram" aria-label="instagram"></div>
-                <div className="img_linkedin" aria-label="linkedin"></div>
-                <div className="img_github" aria-label="github"></div>
-                <div className="img_facebook" aria-label="facebook"></div>
-                <div className="img_discord" aria-label="discord"></div>
-            </div>
-
-            <div className="links_right">
-                <a href="#">ACCESSIBILITY</a>
-                <a href="#">PRICING</a>
-                <a href="#">PRIVACY POLICY</a>
-                <a href="#">COOKIE POLICY</a>
-            </div>
-        </footer>
         </body>
     )
 }
