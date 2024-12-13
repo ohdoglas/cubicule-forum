@@ -22,9 +22,9 @@ const Footer: React.FC = () => {
 
         <div className="links_right">
             <a href="/accessibility">ACCESSIBILITY</a>
-            <a href="#">PRICING</a>
+            <a href="/pricing">PRICING</a>
             <a href="/privacy">PRIVACY POLICY</a>
-            <a href="#">COOKIE POLICY</a>
+            <a href="/cookies">COOKIE POLICY</a>
         </div>
     </footer>
     )

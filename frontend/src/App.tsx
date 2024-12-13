@@ -7,6 +7,7 @@ import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
 import Cookies from "./pages/Cookies";
 import Accessibility from "./pages/Accessibility";
+import Pricing from "./pages/Pricing";
 
 const App: React.FC = () => {
     return (
@@ -20,6 +21,7 @@ const App: React.FC = () => {
                     <Route path="/privacy" element={<Privacy />} />
                     <Route path="/cookies" element={<Cookies />} />
                     <Route path="/accessibility" element={<Accessibility />} />
+                    <Route path="/pricing" element={ <Pricing />} />
                 </Route>
             </Routes>
         </Router>
