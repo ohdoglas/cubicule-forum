@@ -53,9 +53,21 @@ body.page-one {
     background-color: var(--detail-opac);
 }
 
-.welcome_text, .intro_text {
+.welcome_text {
     padding: 30px;
-    padding-bottom: 32px;
+    margin-bottom: 30px;
+
+
+    margin-left: 250px;
+    margin-right: 250px;
+
+    background-color: var(--detail-opac);
+}
+
+.intro_text {
+    padding: 30px;
+
+    margin-bottom: 30px;
 
     margin-left: 250px;
     margin-right: 250px;
@@ -71,17 +83,6 @@ body.page-one {
 
     margin-left: 250px;
     margin-right: 250px;
-    
+
     background-color: var(--detail-opac);
-}
-
-
-.get_started_button {
-    padding: 20px;
-    margin: 20px;
-}
-
-.features_button {
-    padding: 20px;
-    margin: 20px;
 }
