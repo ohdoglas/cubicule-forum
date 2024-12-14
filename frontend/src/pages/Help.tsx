@@ -8,7 +8,6 @@ const Help: React.FC = () => {
     const navigate = useNavigate();
 
     return (
-        
         <body className="page-four">
             <Header />
 

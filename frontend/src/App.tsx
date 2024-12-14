@@ -10,6 +10,7 @@ import Accessibility from "./pages/Accessibility";
 import Pricing from "./pages/Pricing";
 import Help from "./pages/Help";
 import Contact from "./pages/Contact";
+import Confirm from "./pages/Confirm";
 
 const App: React.FC = () => {
     return (
@@ -26,6 +27,7 @@ const App: React.FC = () => {
                     <Route path="/pricing" element={ <Pricing />} />
                     <Route path="/help" element={ <Help /> } />
                     <Route path="/contact" element={ <Contact /> } />
+                    <Route path="/confirm" element={ <Confirm /> } />
                     </Route>
             </Routes>
         </Router>

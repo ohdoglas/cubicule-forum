@@ -150,7 +150,7 @@ Class Action Waiver: You agree to resolve disputes on an individual basis, not a
                     For questions or concerns about these Terms, contact us at support@cubicles.com.
                     </p>
                 </section>
-    
+
             </main>
 
             <Footer />
