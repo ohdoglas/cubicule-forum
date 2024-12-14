@@ -7,8 +7,8 @@ const Footer: React.FC = () => {
         <footer className="footer">
         <div className="links_left">
             <a href="/about">ABOUT US</a>
-            <a href="#">HELP CENTER</a>
-            <a href="#">CONTACT US</a>
+            <a href="/help">HELP CENTER</a>
+            <a href="/contact">CONTACT US</a>
             <a href="/terms">TERMS OF SERVICE</a>
         </div>
 
