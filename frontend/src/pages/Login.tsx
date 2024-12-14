@@ -9,39 +9,30 @@ const Login: React.FC = () => {
 
     return (
         <body className="page-one">
-
             <Header />
-
             <main className="main_content">
                 <section className="section_one">
                     <h1 className="feature_title">
-                    Welcome Back to Cubicles!
+                        Welcome Back to Cubicles!
                     </h1>
                     <p className="feature_text">
-                    Reconnect and continue building your digital world.
+                        Reconnect and continue building your digital world.
                     </p>
-
                     <form action="" className="main_form">
-
                     <label htmlFor="email_input" className="text_label">EMAIL OR USERNAME:</label>
                         <input type="email" className="email_input" id="email_input"/> <br />
-
                     <label htmlFor="password_input" className="text_label">PASSWORD:</label>
                         <input type="password" className="password_input" id="password_input" /> <br />
-
                     <p className="feature_text_two">
-                    Forgot your password? <a href="/password-recovery">recover here</a>.
+                        Forgot your password? <a href="/password-recovery">recover here</a>.
                     </p> <br />
-
                     <p className="feature_text_two">
-                    remember me?
+                        remember me?
                         <input type="checkbox" className="remember_check" />
                     </p>
-
                         <button className="submit_button">
-                        Log In to Your Cubicle!
+                            Log In to Your Cubicle!
                         </button>
-
                         <div className="login_social_links">
                             <p>
                             or login with:
@@ -51,7 +42,6 @@ const Login: React.FC = () => {
                             <div className="img_facebook" aria-label="facebook"></div>
                             <div className="img_discord" aria-label="discord"></div>
                         </div>
-
                     </form>
                 </section>
             </main>
