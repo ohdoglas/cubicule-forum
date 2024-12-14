@@ -11,6 +11,9 @@ import Pricing from "./pages/Pricing";
 import Help from "./pages/Help";
 import Contact from "./pages/Contact";
 import Confirm from "./pages/Confirm";
+import AdminSetup from "./pages/AdminSetup";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
 
 const App: React.FC = () => {
     return (
@@ -28,6 +31,9 @@ const App: React.FC = () => {
                     <Route path="/help" element={ <Help /> } />
                     <Route path="/contact" element={ <Contact /> } />
                     <Route path="/confirm" element={ <Confirm /> } />
+                    <Route path="/admin-setup" element={ <AdminSetup />} />
+                    <Route path="/register" element={ <Register />} />
+                    <Route path="/login" element={ <Login /> } />
                     </Route>
             </Routes>
         </Router>

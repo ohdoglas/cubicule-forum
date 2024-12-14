@@ -12,8 +12,8 @@ const Header: React.FC = () => {
                 </div>
             </nav>
         <div className="header_nav_buttons">
-                <button className="header_nav_login_button">LOGIN</button>
-                <button className="header_nav_register_button">REGISTER</button>
+                <Link to={"/login"}><button className="header_nav_login_button">LOGIN</button></Link>
+                <Link to={"/register"}><button className="header_nav_register_button">REGISTER</button></Link>
             </div>
     </header>
     );

@@ -6,6 +6,11 @@ body, button, input, select, textarea {
     font-style: normal;
 }
 
+button {
+    border: none;
+    border-radius: 4px;
+}
+
 button:hover {
     background-color: var(--detail-111);
 }
