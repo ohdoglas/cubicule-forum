@@ -14,6 +14,7 @@ import Confirm from "./pages/auth/Confirm";
 import AdminSetup from "./pages/admin/AdminSetup";
 import Register from "./pages/auth/Register";
 import Login from "./pages/auth/Login";
+import NotFound from "./pages/public/NotFound";
 
 const App: React.FC = () => {
     return (
@@ -34,6 +35,7 @@ const App: React.FC = () => {
                     <Route path="/admin-setup" element={ <AdminSetup />} />
                     <Route path="/register" element={ <Register />} />
                     <Route path="/login" element={ <Login /> } />
+                    <Route path="/notfound" element={ <NotFound /> } />
                     </Route>
             </Routes>
         </Router>

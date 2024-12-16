@@ -21,3 +21,7 @@ button {
 button:hover {
     background-color: var(--detail-111);
 }
+
+a:hover {
+    color: var(--text-001);
+}
