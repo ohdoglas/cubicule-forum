@@ -1,19 +1,19 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import Features from "./pages/Features";
-import About from "./pages/About";
-import Terms from "./pages/Terms";
-import Privacy from "./pages/Privacy";
-import Cookies from "./pages/Cookies";
-import Accessibility from "./pages/Accessibility";
-import Pricing from "./pages/Pricing";
-import Help from "./pages/Help";
-import Contact from "./pages/Contact";
-import Confirm from "./pages/Confirm";
-import AdminSetup from "./pages/AdminSetup";
-import Register from "./pages/Register";
-import Login from "./pages/Login";
+import Home from "./pages/public/Home";
+import Features from "./pages/public/Features";
+import About from "./pages/public/About";
+import Terms from "./pages/legal/Terms";
+import Privacy from "./pages/legal/Privacy";
+import Cookies from "./pages/legal/Cookies";
+import Accessibility from "./pages/public/Accessibility";
+import Pricing from "./pages/legal/Pricing";
+import Help from "./pages/public/Help";
+import Contact from "./pages/public/Contact";
+import Confirm from "./pages/auth/Confirm";
+import AdminSetup from "./pages/admin/AdminSetup";
+import Register from "./pages/auth/Register";
+import Login from "./pages/auth/Login";
 
 const App: React.FC = () => {
     return (
