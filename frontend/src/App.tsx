@@ -16,6 +16,7 @@ import Register from "./pages/auth/Register";
 import Login from "./pages/auth/Login";
 import NotFound from "./pages/public/NotFound";
 import SetupComplete from "./pages/admin/SetupComplete";
+import RegisterComplete from "./pages/auth/RegisterComplete";
 
 const App: React.FC = () => {
     return (
@@ -38,6 +39,7 @@ const App: React.FC = () => {
                     <Route path="/login" element={ <Login /> } />
                     <Route path="/not-found" element={ <NotFound /> } />
                     <Route path="/setup-complete" element={ <SetupComplete />} />
+                    <Route path="/register-complete" element={<RegisterComplete />} />
                     </Route>
             </Routes>
         </Router>
