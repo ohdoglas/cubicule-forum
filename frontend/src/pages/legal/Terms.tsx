@@ -133,7 +133,7 @@ const Terms: React.FC = () => {
                         Contact Us
                     </h1>
                     <p className="feature_text">
-                        For questions or concerns about these Terms, contact us at [support email].
+                        For questions or concerns about these Terms, contact us at cubiclesbra@gmail.com.
                     </p>
                 </section>
             </main>
