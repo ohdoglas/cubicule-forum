@@ -105,7 +105,7 @@ const Cookies: React.FC = () => {
                     </h1>
                     <p className="feature_text">
                         If you have questions about this Cookie Policy or how we use cookies, please contact us:
-                        Email: [support email]
+                        Email: cubiclesbra@gmail.com
                     </p>
                 </section>
             </main>

@@ -54,7 +54,7 @@ const Accessibility: React.FC = () => {
                     </h1>
                     <p className="feature_text">
                         We value feedback from our community to improve accessibility. If you encounter any barriers or have suggestions, please contact us: <br />
-                        • Email: [Accessibility email]<br />
+                        • Email: cubiclesbra@gmail.com<br />
                         Our team is committed to addressing reported issues promptly.
                     </p>
                 </section>
@@ -101,7 +101,7 @@ const Accessibility: React.FC = () => {
                     </h1>
                     <p className="feature_text">
                         If you have any questions, need assistance, or want to provide feedback on our Accessibility Policy, please reach out to us:
-                        Email: [Accessibility email]
+                        Email: cubiclesbra@gmail.com
                     </p>
                 </section>
             </main>

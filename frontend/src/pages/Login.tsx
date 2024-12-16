@@ -27,7 +27,7 @@ const Login: React.FC = () => {
                         Forgot your password? <a href="/password-recovery">recover here</a>.
                     </p> <br />
                     <p className="feature_text_two">
-                        remember me?
+                        remember me
                         <input type="checkbox" className="remember_check" />
                     </p>
                         <button className="submit_button">

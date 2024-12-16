@@ -1,7 +1,14 @@
 @import url(./variables.css);
 
-body, button, input, select, textarea {
+body, button, select, textarea {
     font-family: "Rubik Mono One", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+
+input, textarea {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: large;
     font-weight: 400;
     font-style: normal;
 }

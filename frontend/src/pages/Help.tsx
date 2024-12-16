@@ -99,7 +99,7 @@ const Help: React.FC = () => {
                     </h1>
                     <p className="feature_text">
                         Need personalized help? Reach out to us: <br />
-                        Email: [support email]
+                        Email: cubiclesbra@gmail.com
                     </p>
                 </section>
                 <section className="section_one">

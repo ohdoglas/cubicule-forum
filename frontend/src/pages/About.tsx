@@ -55,7 +55,7 @@ const About: React.FC = () => {
                         Help Center
                     </h1>
                     <p className="feature_text">
-                        Need assistance? Our <Link to={"/help"}>Help Center</Link> is here for you. Explore our extensive knowledge base for tutorials, FAQs, and troubleshooting guides. Can’t find what you’re looking for? Contact our support team via live chat or email at [email de suporte]. We're committed to helping you make the most of your Cubicles experience.
+                        Need assistance? Our <Link to={"/help"}>Help Center</Link> is here for you. Explore our extensive knowledge base for tutorials, FAQs, and troubleshooting guides. Can’t find what you’re looking for? Contact our support team via live chat or email at cubiclesbra@gmail.com. We're committed to helping you make the most of your Cubicles experience.
                     </p>
                 </section>
                 <section className="section_one">
@@ -63,7 +63,7 @@ const About: React.FC = () => {
                         Privacy Policy
                     </h1>
                     <p className="feature_text">
-                        At Cubicles, your privacy is our priority. We are committed to safeguarding your personal data and ensuring a secure experience on our platform. Our Privacy Policy outlines how we collect, use, and protect your information, including your interactions, digital assets, and preferences. We use state-of-the-art encryption and adhere to global data protection standards. For any inquiries regarding your data, contact our support team at [privacy email].
+                        At Cubicles, your privacy is our priority. We are committed to safeguarding your personal data and ensuring a secure experience on our platform. Our Privacy Policy outlines how we collect, use, and protect your information, including your interactions, digital assets, and preferences. We use state-of-the-art encryption and adhere to global data protection standards. For any inquiries regarding your data, contact our support team at cubiclesbra@gmail.com.
                     </p>
                 </section>
                 <section className="section_one">

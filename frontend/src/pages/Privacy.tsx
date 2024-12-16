@@ -104,7 +104,7 @@ const Privacy: React.FC = () => {
                         • Correct or update inaccurate information
                         • Request deletion of your account and personal data
                         • Opt-out of certain data processing activities
-                        To exercise your rights, contact us at [privacy email].
+                        To exercise your rights, contact us at cubiclesbra@gmail.com.
                     </p>
                 </section>
                 <section className="section_one">
@@ -145,7 +145,7 @@ const Privacy: React.FC = () => {
                     </h1>
                     <p className="feature_text">
                         If you have any questions or concerns about this Privacy Policy, please contact us:
-                        Email: [privacy email]
+                        Email: cubiclesbra@gmail.com
                     </p>
                 </section>
             </main>

@@ -84,7 +84,7 @@ const Pricing: React.FC = () => {
                     </h1>
                     <p className="feature_text">
                         For any questions or assistance regarding pricing or subscriptions, please contact our support team: <br />
-                        • Email: [support email]
+                        • Email: cubiclesbra@gmail.com
                     </p>
                 </section>
             </main>
