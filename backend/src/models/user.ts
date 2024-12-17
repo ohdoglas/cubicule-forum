@@ -13,8 +13,6 @@ export default class User {
     username: string;
     email: string;
     private password_hash: string;
-    profile_image?: string;
-    bio?: string;
     emailVerified: boolean;
     confirmationToken?: string;
     created_at: Date;
@@ -28,8 +26,6 @@ export default class User {
         this.username = props.username;
         this.email = props.email;
         this.password_hash = props.password_hash;
-        this.profile_image = props.profile_image;
-        this.bio = props.bio;
         this.emailVerified = props.emailVerified;
         this.confirmationToken = props.confirmationToken;
         this.created_at = props.created_at || new Date();

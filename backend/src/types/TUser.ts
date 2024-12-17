@@ -6,8 +6,6 @@ type TUser = {
     username: string;
     email: string;
     password_hash: string;
-    profile_image?: string;
-    bio?: string;
     emailVerified: boolean;
     confirmationToken?: string;
     created_at: Date;
