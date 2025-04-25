@@ -1,0 +1,27 @@
+@import url(./variables.css);
+
+body, button, select, textarea {
+    font-family: "Rubik Mono One", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+
+input, textarea {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: large;
+    font-weight: 400;
+    font-style: normal;
+}
+
+button {
+    border: none;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: var(--detail-111);
+}
+
+a:hover {
+    color: var(--text-001);
+}

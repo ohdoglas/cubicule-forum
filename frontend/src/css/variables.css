@@ -1,0 +1,9 @@
+:root {
+    --base-000:#000101;
+    --detail-000:#17758c;
+    --detail-111:#4cbfdb;
+    --detail-opac: hsl(242, 76%, 7%, 75%); /*75% */
+    --base-001: #040418;
+    --text-000: white;
+    --text-001: #4cbfdb;
+}

@@ -1,0 +1,135 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model InitialSetup {
+  id            String   @id @default(uuid()) @db.Uuid
+  setupComplete Boolean  @default(false)
+  setupToken    String   @unique @db.VarChar(255)
+  created_at    DateTime @default(now())
+  completed_at  DateTime?
+}
+
+model User {
+  id                String            @id @default(uuid()) @db.Uuid
+  username          String            @unique @db.VarChar(50)
+  email             String            @unique @db.VarChar(255)
+  password_hash     String            @db.VarChar(255)
+  created_at        DateTime          @default(now())
+  updated_at        DateTime          @updatedAt
+  last_login        DateTime?
+  status            String            @db.VarChar(20)
+  role              String            @db.VarChar(20)
+  confirmationToken String?           @unique
+  emailVerified     Boolean           @default(false)
+
+  userPermissions   UserPermissions[] @relation("UserPermissionsUser")
+  userRoles         UserRoles[]       @relation("UserId")
+  wallet            Wallets?          @relation("UserWallet")
+  profile           UserProfile?
+  loginAttempts     LoginAttempt[]    @relation
+}
+
+
+
+model UserProfile {
+  id            String   @id @default(uuid()) @db.Uuid
+  user_id       String   @unique @db.Uuid
+  bio           String?
+  profile_image String?
+  first_name    String?
+  last_name     String?
+  date_of_birth DateTime?
+  phone_number  String?
+  address_line_1 String?
+  address_line_2 String?
+  city          String?
+  state         String?
+  postal_code   String?
+  country       String?
+  gender        String?
+  social_links  Json?
+  preferences   Json?
+  occupation    String?
+  created_at    DateTime @default(now())
+  updated_at    DateTime @updatedAt
+
+  user          User     @relation(fields: [user_id], references: [id])
+}
+
+
+model LoginAttempt {
+  id             String   @id @default(uuid()) @db.Uuid
+  user_id        String   @db.Uuid
+  ip_address     String?  @db.VarChar(45)
+  attempt_time   DateTime @default(now())
+  success        Boolean
+  failed_attempts Int     @default(0)
+  lock_until     DateTime?
+
+  user           User     @relation(fields: [user_id], references: [id])
+  @@index([user_id])
+}
+
+
+model Roles {
+  id          String      @id @default(uuid()) @db.Uuid
+  role_name   String      @unique @db.VarChar(50)
+  description String?
+  status      Boolean     @default(true)
+  created_at  DateTime    @default(now())
+  updated_at  DateTime    @updatedAt
+  deleted_at  DateTime?
+
+  userRoles   UserRoles[] @relation("UserRoleId")
+}
+
+model Permissions {
+  id              String            @id @default(uuid()) @db.Uuid
+  permission      String            @unique @db.VarChar(100)
+  description     String?
+  status          Boolean           @default(true)
+  created_at      DateTime          @default(now())
+  updated_at      DateTime          @updatedAt
+  deleted_at      DateTime?
+
+  userPermissions UserPermissions[] @relation("UserPermissionId")
+}
+
+model UserRoles {
+  id          String    @id @default(uuid()) @db.Uuid
+  user_id     String    @db.Uuid
+  role_id     String    @db.Uuid
+  assigned_at DateTime  @default(now())
+  revoked_at  DateTime?
+
+  role        Roles     @relation("UserRoleId", fields: [role_id], references: [id])
+  user        User      @relation("UserId", fields: [user_id], references: [id])
+}
+
+model UserPermissions {
+  id            String      @id @default(uuid()) @db.Uuid
+  user_id       String      @db.Uuid
+  permission_id String      @db.Uuid
+  granted_at    DateTime    @default(now())
+  revoked_at    DateTime?
+
+  permission    Permissions @relation("UserPermissionId", fields: [permission_id], references: [id])
+  user          User        @relation("UserPermissionsUser", fields: [user_id], references: [id])
+}
+
+model Wallets {
+  id         String   @id @default(uuid()) @db.Uuid
+  user_id    String   @unique @db.Uuid
+  balance    Decimal  @default(0.00)
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  user       User     @relation("UserWallet", fields: [user_id], references: [id])
+}
+

@@ -1,0 +1,137 @@
+@import url(../../global.css);
+@import url(../../reset.css);
+@import url(../../variables.css);
+@import url(../../components/header.css);
+@import url(../../components/footer.css);
+
+
+.header {
+    display: flex;
+
+    justify-content: space-between;
+    width: 100%;
+    height: 80px;
+    background-color: var(--base-000);
+}
+
+.header_nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.header_nav_logo {
+    position: relative;
+    margin-left: 16px;
+    margin-top: 8px;
+}
+
+.header_nav_logo_img {
+    background-image: url(../../../assets/image/LOGO.png);
+    background-size: cover;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 75.2px;
+    height: 55.53px;
+    border-radius: 0px;
+}
+
+.header_nav_logo_name {
+    background-image: url(../../../assets/image/logoName.png);
+    background-size: cover;
+    position: absolute;
+    left: 79px;
+    top: 0px;
+    width: 272.55px;
+    height: 55.53px;
+    border-radius: 0px;
+}
+
+
+.header_nav_buttons {
+    display: flex;
+    align-items: center;
+    margin-right: 32px;
+}
+
+.header_nav_login_button {
+    padding: 16px;
+    margin: 8px;
+    text-align: center;
+    color: var(--text-000);
+    background-color: var(--detail-000);
+    border: none;
+    border-radius: 4px;
+}
+
+.header_nav_login_button:hover {
+    background-color: var(--detail-111);
+}
+
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    overflow-x: hidden;
+
+    background-color: var(--base-001);
+    color: var(--text-000);
+
+}
+
+body.page-five {
+    background-image: url(../../../assets/design/png/desk_04.png);
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+.main_content {
+    display: block;
+    text-align: center;
+
+    padding: 64px;
+    margin: 32px;
+}
+
+.main_content section {
+    margin-left: 100px;
+    margin-right: 100px;
+
+    margin-bottom: 200px;
+}
+
+.setup_title {
+    padding: 20px;
+    font-size: 64px;
+    margin-bottom: 32px;
+    background-color: var(--detail-opac);
+
+    margin-left: 250px;
+    margin-right: 250px;
+}
+
+.setup_text {
+    padding: 30px;
+    margin: 16px;
+
+    background-color: var(--detail-opac);
+
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+.complete_button {
+    text-align: center;
+
+    color: var(--text-000);
+    background-color: var(--detail-000);
+
+    padding: 20px;
+    margin: 20px;
+}
